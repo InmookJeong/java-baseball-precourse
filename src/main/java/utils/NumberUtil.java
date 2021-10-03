@@ -11,7 +11,7 @@ public class NumberUtil {
 	 * @param randomNo
 	 * @return true/false
 	 */
-	public boolean isOneToNineNumeric(int randomNo) {
+	public static boolean isOneToNineNumeric(int randomNo) {
 		if(randomNo >= 1 && randomNo <= 9) {
 			return true;
 		}

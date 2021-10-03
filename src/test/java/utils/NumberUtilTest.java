@@ -15,11 +15,10 @@ public class NumberUtilTest {
 	@Test
 	@DisplayName("인자로 전달된 값이 1~9 사이의 숫자인지 확인")
 	void isOneToNineNumeric() {
-		NumberUtil numberUtil = new NumberUtil();
-		assertThat(numberUtil.isOneToNineNumeric(1)).isTrue();
-		assertThat(numberUtil.isOneToNineNumeric(5)).isTrue();
-		assertThat(numberUtil.isOneToNineNumeric(9)).isTrue();
-		assertThat(numberUtil.isOneToNineNumeric(0)).isFalse();
-		assertThat(numberUtil.isOneToNineNumeric(10)).isFalse();
+		assertThat(NumberUtil.isOneToNineNumeric(1)).isTrue();
+		assertThat(NumberUtil.isOneToNineNumeric(5)).isTrue();
+		assertThat(NumberUtil.isOneToNineNumeric(9)).isTrue();
+		assertThat(NumberUtil.isOneToNineNumeric(0)).isFalse();
+		assertThat(NumberUtil.isOneToNineNumeric(10)).isFalse();
 	}
 }
