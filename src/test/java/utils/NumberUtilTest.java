@@ -30,7 +30,12 @@ public class NumberUtilTest {
 	@DisplayName("사용자가 입력한 문자가 3자리 숫자인지 확인")
 	void checkUserInputIsNumeric() {
 		String numericRegExp = "^[0-9]{3}$";
-		String userInputNo = "052";
-		assertThat(Pattern.matches(numericRegExp, userInputNo)).isTrue();
+		assertThat(NumberUtil.checkUserInputIsNumeric("123")).isTrue();
+		assertThat(NumberUtil.checkUserInputIsNumeric("096")).isTrue();
+		assertThat(NumberUtil.checkUserInputIsNumeric("1")).isFalse();
+		assertThat(NumberUtil.checkUserInputIsNumeric("19")).isFalse();
+		assertThat(NumberUtil.checkUserInputIsNumeric("1456")).isFalse();
+		assertThat(NumberUtil.checkUserInputIsNumeric("abc")).isFalse();
+		assertThat(NumberUtil.checkUserInputIsNumeric("1a3")).isFalse();
 	}
 }
