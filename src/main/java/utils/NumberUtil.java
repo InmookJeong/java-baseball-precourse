@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.regex.Pattern;
+
 /**
  * 숫자 검증 Util
  * @author Inmook,Jeong
@@ -16,5 +18,15 @@ public class NumberUtil {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * 사용자가 입력한 문자가 3자리 숫자인지 확인
+	 * @param userInputNo
+	 * @return 3자리 숫자면 treu, 아니면 false
+	 */
+	public static boolean checkUserInputIsNumeric(String userInputNo) {
+		String numericRegExp = "^[0-9]{3}$";
+		return Pattern.matches(numericRegExp, userInputNo);
 	}
 }
