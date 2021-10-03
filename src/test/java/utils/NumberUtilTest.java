@@ -1,8 +1,12 @@
 package utils;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.regex.Pattern;
 
 /**
  * 숫자 검증 Util
@@ -20,5 +24,13 @@ public class NumberUtilTest {
 		assertThat(NumberUtil.isOneToNineNumeric(9)).isTrue();
 		assertThat(NumberUtil.isOneToNineNumeric(0)).isFalse();
 		assertThat(NumberUtil.isOneToNineNumeric(10)).isFalse();
+	}
+
+	@Test
+	@DisplayName("사용자가 입력한 문자가 3자리 숫자인지 확인")
+	void checkUserInputIsNumeric() {
+		String numericRegExp = "^[0-9]{3}$";
+		String userInputNo = "052";
+		assertThat(Pattern.matches(numericRegExp, userInputNo)).isTrue();
 	}
 }
