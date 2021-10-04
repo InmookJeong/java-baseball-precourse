@@ -20,13 +20,7 @@ public class Application {
     public static void playBaseball() {
         String computerNumbers = setComputerNumbers();
         System.out.println("computerNumbers : " + computerNumbers);
-        // 사용자로부터 숫자 입력 받기
-        String userInuptNumbers = getInputUserNumbers();
-        System.out.println("userInuptNumbers : " + userInuptNumbers);
-        if(isNothing(computerNumbers, userInuptNumbers)) {
-            System.out.println("낫싱");
-            // TODO 사용자 입력 다시 받기
-        }
+        checkResultByUserInput(computerNumbers);
     }
 
     // 컴퓨터의 숫자 세팅
@@ -46,6 +40,16 @@ public class Application {
             computerNo += String.valueOf(numberToAdd);
         }
         return computerNo;
+    }
+
+    // 사용자가 값을 입력한 후 결과 확인하기
+    public static void checkResultByUserInput(String computerNumbers) {
+        // 사용자로부터 숫자 입력 받기
+        String userInuptNumbers = getInputUserNumbers();
+        if(isNothing(computerNumbers, userInuptNumbers)) {
+            System.out.println("낫싱");
+            checkResultByUserInput(computerNumbers);
+        }
     }
     
     // 사용자 입력 숫자 가져오기
