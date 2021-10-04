@@ -49,7 +49,9 @@ public class Application {
         if(isNothing(computerNumbers, userInuptNumbers)) {
             System.out.println("낫싱");
             checkResultByUserInput(computerNumbers);
+            return;
         }
+        viewResult(computerNumbers, userInuptNumbers);
     }
     
     // 사용자 입력 숫자 가져오기
@@ -74,5 +76,28 @@ public class Application {
             i++;
         }
         return !containNumber;
+    }
+    
+    // 사용자의 입력값이 컴퓨터와 얼마나 일치하는지 확인
+    public static void viewResult(String computerNo, String userInputNo) {
+        int strikeCount = 0;
+        int ballCount = 0;
+        if(computerNo.equals(userInputNo)) {
+            System.out.println("3스트라이크");
+            return;
+        }
+
+        // TODO refactoring
+        for(int i=0; i<userInputNo.length(); i++) {
+            String userNoChar = String.valueOf(userInputNo.charAt(i));
+            if(computerNo.contains(userNoChar) && String.valueOf(computerNo.charAt(i)).equals(userNoChar)) {
+                strikeCount++;
+            }
+            if(computerNo.contains(userNoChar) && !String.valueOf(computerNo.charAt(i)).equals(userNoChar)) {
+                ballCount++;
+            }
+        }
+        System.out.println("strikeCount : " + strikeCount + ", ballCount : " + ballCount);
+        checkResultByUserInput(computerNo);
     }
 }
