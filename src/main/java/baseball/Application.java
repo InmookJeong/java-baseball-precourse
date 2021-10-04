@@ -37,7 +37,8 @@ public class Application {
 
     // 숫자 검증 후 ComputerNumber에 추가하기
     public static String getValidComputerNumbers(String computerNo, int numberToAdd) {
-        if(NumberUtil.isOneToNineNumeric(numberToAdd)) {
+        if(NumberUtil.isOneToNineNumeric(numberToAdd)
+            && !NumberUtil.hasDuplicatedNumber(computerNo, numberToAdd)) {
             computerNo += String.valueOf(numberToAdd);
         }
         return computerNo;
@@ -48,10 +49,11 @@ public class Application {
         System.out.print("숫자를 입력해주세요 : ");
         String userInputNumbers = Console.readLine();
         if(NumberUtil.checkUserInputIsNumeric(userInputNumbers)
-            && NumberUtil.isOneToNineUserNumeric(userInputNumbers)) {
+            && NumberUtil.isOneToNineUserNumeric(userInputNumbers)
+            && !NumberUtil.hasDuplicatedNumber(userInputNumbers)) {
             return userInputNumbers;
         }
-        System.out.println("[ERROR] 1에서 9사이의 3자리 숫자만 입력 가능합니다.");
+        System.out.println("[ERROR] 1에서 9사이의 중복되지 않는 3자리 숫자만 입력 가능합니다.");
         return getInputUserNumbers();
     }
 }
