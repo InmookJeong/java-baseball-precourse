@@ -46,4 +46,13 @@ public class NumberUtilTest {
 		assertThat(NumberUtil.isOneToNineUserNumeric("059")).isFalse();
 		assertThat(NumberUtil.isOneToNineUserNumeric("103")).isFalse();
 	}
+
+	@Test
+	@DisplayName("중복된 숫자가 존재하는지 확인")
+	void hasDuplicatedNumber() {
+		String userNumber1 = "159";
+		assertThat(userNumber1.contains("3")).isFalse();
+		assertThat(userNumber1.contains("5")).isTrue();
+		assertThat(userNumber1.contains("8")).isFalse();
+	}
 }
