@@ -45,4 +45,26 @@ public class NumberUtil {
 		}
 		return isOneToNineNumber;
 	}
+
+	/**
+	 * 컴퓨터의 숫자에 중복된 값이 있는지 확인
+	 * @param numbers
+	 * @param numberToAdd
+	 * @return
+	 */
+	public static boolean hasDuplicatedNumber(String numbers, int numberToAdd) {
+		return numbers.contains(String.valueOf(numberToAdd));
+	}
+
+	/**
+	 * 사용자가 입력한 숫자에 중복된 값이 있는지 확인
+	 * @param numbers
+	 * @return
+	 */
+	public static boolean hasDuplicatedNumber(String numbers) {
+		String firstNo = String.valueOf(numbers.charAt(0)),
+				secondNo = String.valueOf(numbers.charAt(1)),
+				thirdNo = String.valueOf(numbers.charAt(2));
+		return (firstNo.equals(secondNo) || firstNo.equals(thirdNo) || secondNo.equals(thirdNo));
+	}
 }

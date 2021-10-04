@@ -50,9 +50,10 @@ public class NumberUtilTest {
 	@Test
 	@DisplayName("중복된 숫자가 존재하는지 확인")
 	void hasDuplicatedNumber() {
-		String userNumber1 = "159";
-		assertThat(userNumber1.contains("3")).isFalse();
-		assertThat(userNumber1.contains("5")).isTrue();
-		assertThat(userNumber1.contains("8")).isFalse();
+		assertThat(NumberUtil.hasDuplicatedNumber("", 1)).isFalse();
+		assertThat(NumberUtil.hasDuplicatedNumber("15", 9)).isFalse();
+		assertThat(NumberUtil.hasDuplicatedNumber("15", 5)).isTrue();
+		assertThat(NumberUtil.hasDuplicatedNumber("137")).isFalse();
+		assertThat(NumberUtil.hasDuplicatedNumber("464")).isTrue();
 	}
 }
