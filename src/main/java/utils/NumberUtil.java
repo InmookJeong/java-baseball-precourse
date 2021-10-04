@@ -29,4 +29,20 @@ public class NumberUtil {
 		String numericRegExp = "^[0-9]{3}$";
 		return Pattern.matches(numericRegExp, userInputNo);
 	}
+
+	/**
+	 * 사용자가 입력한 문자가 1~9 사이의 숫자로 구성되어 있는지 확인
+	 * @param userInputNo
+	 * @return
+	 */
+	public static boolean isOneToNineUserNumeric(String userInputNo) {
+		boolean isOneToNineNumber = true;
+		int i = 0;
+		while(i<userInputNo.length() && isOneToNineNumber) {
+			String noChar = String.valueOf(userInputNo.charAt(i));
+			isOneToNineNumber = isOneToNineNumeric(Integer.parseInt(noChar));
+			i++;
+		}
+		return isOneToNineNumber;
+	}
 }
