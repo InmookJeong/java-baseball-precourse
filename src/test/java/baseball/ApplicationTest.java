@@ -2,10 +2,10 @@ package baseball;
 
 import nextstep.test.NSTest;
 import nextstep.utils.Randoms;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.MockedStatic;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
@@ -14,6 +14,16 @@ public class ApplicationTest extends NSTest {
     @BeforeEach
     void beforeEach() {
         super.setUp();
+    }
+
+    @Test
+    @DisplayName("컴퓨터의 숫자와 사용자의 숫자가 일치하는 값이 하나도 없는지 확인")
+    void isNothing() {
+        String computerNo = "159";
+        String userInputNo = "278";
+        assertThat(computerNo.contains(String.valueOf(userInputNo.charAt(0)))).isFalse();
+        assertThat(computerNo.contains(String.valueOf(userInputNo.charAt(1)))).isFalse();
+        assertThat(computerNo.contains(String.valueOf(userInputNo.charAt(2)))).isFalse();
     }
 
     @Test
