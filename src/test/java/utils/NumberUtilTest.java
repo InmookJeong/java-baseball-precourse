@@ -42,14 +42,8 @@ public class NumberUtilTest {
 	@Test
 	@DisplayName("사용자의 숫자가 1~9 사이의 3자리 숫자로 구성되었는지 확인")
 	void isOneToNineUserNumber() {
-		String userInputNumber = "912";
-		boolean isOneToNineNumber = true;
-		int i = 0;
-		while(i < userInputNumber.length() && isOneToNineNumber) {
-			String noChar = String.valueOf(userInputNumber.charAt(i));
-			isOneToNineNumber = NumberUtil.isOneToNineNumeric(Integer.parseInt(noChar));
-			i++;
-		}
-		assertThat(isOneToNineNumber).isTrue();
+		assertThat(NumberUtil.isOneToNineUserNumeric("159")).isTrue();
+		assertThat(NumberUtil.isOneToNineUserNumeric("059")).isFalse();
+		assertThat(NumberUtil.isOneToNineUserNumeric("103")).isFalse();
 	}
 }
