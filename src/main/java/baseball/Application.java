@@ -23,6 +23,10 @@ public class Application {
         // 사용자로부터 숫자 입력 받기
         String userInuptNumbers = getInputUserNumbers();
         System.out.println("userInuptNumbers : " + userInuptNumbers);
+        if(isNothing(computerNumbers, userInuptNumbers)) {
+            System.out.println("낫싱");
+            // TODO 사용자 입력 다시 받기
+        }
     }
 
     // 컴퓨터의 숫자 세팅
@@ -55,5 +59,16 @@ public class Application {
         }
         System.out.println("[ERROR] 1에서 9사이의 중복되지 않는 3자리 숫자만 입력 가능합니다.");
         return getInputUserNumbers();
+    }
+
+    // 사용자 입력 값이 컴퓨터의 값 중 하나도 일치하지 않는지 확인
+    public static boolean isNothing(String computerNo, String userInputNo) {
+        boolean containNumber = false;
+        int i = 0;
+        while (i < userInputNo.length() && !containNumber) {
+            containNumber = computerNo.contains(String.valueOf(userInputNo.charAt(i)));
+            i++;
+        }
+        return !containNumber;
     }
 }
