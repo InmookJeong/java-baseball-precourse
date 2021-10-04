@@ -14,22 +14,33 @@ public class Application {
     public static void main(String[] args) {
         // 야구 게임 시작
         playBaseball();
-        
+    }
+
+    // 숫자 야구 게임 시작(Start Point)
+    public static void playBaseball() {
+        String computerNumbers = setComputerNumbers();
+        System.out.println("computerNumbers : " + computerNumbers);
         // 사용자로부터 숫자 입력 받기
         String userInuptNumbers = getInputUserNumbers();
         System.out.println("userInuptNumbers : " + userInuptNumbers);
     }
 
-    // 숫자 야구 게임 시작(Start Point)
-    public static void playBaseball() {
-        // 컴퓨터의 숫자 세팅
+    // 컴퓨터의 숫자 세팅
+    public static String setComputerNumbers() {
         String computerNumbers = "";
         while(computerNumbers.length() < 3) {
             int randomNo = Randoms.pickNumberInRange(1, 9);
-            if(NumberUtil.isOneToNineNumeric(randomNo)) {
-                computerNumbers += String.valueOf(randomNo);
-            }
+            computerNumbers = getValidComputerNumbers(computerNumbers, randomNo);
         }
+        return computerNumbers;
+    }
+
+    // 숫자 검증 후 ComputerNumber에 추가하기
+    public static String getValidComputerNumbers(String computerNo, int numberToAdd) {
+        if(NumberUtil.isOneToNineNumeric(numberToAdd)) {
+            computerNo += String.valueOf(numberToAdd);
+        }
+        return computerNo;
     }
     
     // 사용자 입력 숫자 가져오기
