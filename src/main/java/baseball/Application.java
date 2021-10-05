@@ -77,6 +77,11 @@ public class Application {
         }
         return !containNumber;
     }
+
+    // 사용자의 입력 숫자 하나만 가져와서 컴퓨터의 값과 위치가 일치하는지 확인
+    public static boolean isStrike(String computerNo, String userNo, int index) {
+        return computerNo.contains(userNo) && String.valueOf(computerNo.charAt(index)).equals(userNo);
+    }
     
     // 사용자의 입력값이 컴퓨터와 얼마나 일치하는지 확인
     public static void viewResult(String computerNo, String userInputNo) {

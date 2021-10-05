@@ -30,9 +30,9 @@ public class ApplicationTest extends NSTest {
     @DisplayName("사용자의 숫자 1개가 컴퓨터의 숫자에 포함되어있고 위치까지 모두 일치하는지 확인")
     void isStrike() {
         String computerNo = "159";
-        assertThat(computerNo.contains("1") && String.valueOf(computerNo.charAt(0)).equals("1")).isTrue();
-        assertThat(computerNo.contains("5") && String.valueOf(computerNo.charAt(1)).equals("5")).isTrue();
-        assertThat(computerNo.contains("9") && String.valueOf(computerNo.charAt(2)).equals("9")).isTrue();
+        assertThat(Application.isStrike(computerNo, "1", 0)).isTrue();
+        assertThat(Application.isStrike(computerNo, "5", 1)).isTrue();
+        assertThat(Application.isStrike(computerNo, "9", 2)).isTrue();
     }
 
     @Test
