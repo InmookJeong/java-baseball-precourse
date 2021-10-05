@@ -43,19 +43,19 @@ public class BaseballCount {
 		return computerNo.contains(userNoChar) && !String.valueOf(computerNo.charAt(index)).equals(userNoChar);
 	}
 
-	public void printBaseballCount() {
+	public boolean printBaseballCount() {
 		if(strike > 0 && ball > 0) {
-			printStrikeAndBallCount();
-			return;
+			return printStrikeAndBallCount();
 		}
-		printStrikeOrBallCount();
+		return printStrikeOrBallCount();
 	}
 
-	public void printStrikeAndBallCount() {
+	public boolean printStrikeAndBallCount() {
 		System.out.println(strike+"스트라이크 "+ball+"볼");
+		return true;
 	}
 
-	public void printStrikeOrBallCount() {
+	public boolean printStrikeOrBallCount() {
 		String target = "볼";
 		int targetCount = ball;
 		if(strike>0) {
@@ -63,6 +63,7 @@ public class BaseballCount {
 			targetCount = strike;
 		}
 		System.out.println(targetCount+target);
+		return true;
 	}
 
 	public boolean isGameOver() {
