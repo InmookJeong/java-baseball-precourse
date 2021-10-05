@@ -8,13 +8,12 @@ public class BaseballCount {
 	private int ball;
 	private String computerNo;
 	private String userNo;
-	private boolean isGameOver;
 
 	public BaseballCount(String computerNo, String userNo) {
 		this.computerNo = computerNo;
 		this.userNo = userNo;
 		setBaseballCount();
-		System.out.println("Strike : " + this.strike + " / ball : " + this.ball);
+		printBaseballCount();
 	}
 	
 	// Baseball 게임 카운트 세팅
@@ -42,6 +41,28 @@ public class BaseballCount {
 	// 사용자의 입력 숫자 하나만 가져와서 컴퓨터의 값이 같고 위치가 일치하는지 확인 : Ball
 	public boolean isBall(String userNoChar, int index) {
 		return computerNo.contains(userNoChar) && !String.valueOf(computerNo.charAt(index)).equals(userNoChar);
+	}
+
+	public void printBaseballCount() {
+		if(strike > 0 && ball > 0) {
+			printStrikeAndBallCount();
+			return;
+		}
+		printStrikeOrBallCount();
+	}
+
+	public void printStrikeAndBallCount() {
+		System.out.println(strike+"스트라이크 "+ball+"볼");
+	}
+
+	public void printStrikeOrBallCount() {
+		String target = "볼";
+		int targetCount = ball;
+		if(strike>0) {
+			target = "스트라이크";
+			targetCount = strike;
+		}
+		System.out.println(targetCount+target);
 	}
 
 	public boolean isGameOver() {
