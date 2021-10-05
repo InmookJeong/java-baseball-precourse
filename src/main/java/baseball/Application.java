@@ -1,5 +1,6 @@
 package baseball;
 
+import model.BaseballCount;
 import nextstep.utils.Console;
 import nextstep.utils.Randoms;
 import utils.NumberUtil;
@@ -76,16 +77,6 @@ public class Application {
             i++;
         }
         return !containNumber;
-    }
-
-    // 사용자의 입력 숫자 하나만 가져와서 컴퓨터의 값과 위치가 일치하는지 확인 : Strike
-    public static boolean isStrike(String computerNo, String userNo, int index) {
-        return computerNo.contains(userNo) && String.valueOf(computerNo.charAt(index)).equals(userNo);
-    }
-
-    // 사용자의 입력 숫자 하나만 가져와서 컴퓨터의 값이 같고 위치가 일치하는지 확인 : Ball
-    public static boolean isBall(String computerNo, String userNo, int index) {
-        return computerNo.contains(userNo) && !String.valueOf(computerNo.charAt(index)).equals(userNo);
     }
     
     // 사용자의 입력값이 컴퓨터와 얼마나 일치하는지 확인
