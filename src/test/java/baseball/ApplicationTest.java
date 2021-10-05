@@ -27,15 +27,6 @@ public class ApplicationTest extends NSTest {
     }
 
     @Test
-    @DisplayName("사용자의 숫자 1개가 컴퓨터의 숫자에 포함되어있고 위치까지 모두 일치하는지 확인")
-    void isStrike() {
-        String computerNo = "159";
-        assertThat(Application.isStrike(computerNo, "1", 0)).isTrue();
-        assertThat(Application.isStrike(computerNo, "5", 1)).isTrue();
-        assertThat(Application.isStrike(computerNo, "9", 2)).isTrue();
-    }
-
-    @Test
     void 낫싱() {
         try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms
