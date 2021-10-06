@@ -19,10 +19,9 @@ public class Application {
 
     // 숫자 야구 게임 시작(Start Point)
     public static boolean playBaseball() {
-        String computerNumbers = setComputerNumbers();
         boolean isGameOver = false;
         while(!isGameOver) {
-            isGameOver = checkResultByUserInput(computerNumbers);
+            isGameOver = checkResultByUserInput(setComputerNumbers());
         }
         return restartBaseball();
     }
