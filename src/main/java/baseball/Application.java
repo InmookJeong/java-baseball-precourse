@@ -20,8 +20,9 @@ public class Application {
     // 숫자 야구 게임 시작(Start Point)
     public static boolean playBaseball() {
         boolean isGameOver = false;
+        String computerNumbers = setComputerNumbers();
         while(!isGameOver) {
-            isGameOver = checkResultByUserInput(setComputerNumbers());
+            isGameOver = checkResultByUserInput(computerNumbers);
         }
         return restartBaseball();
     }
@@ -81,16 +82,14 @@ public class Application {
     
     // 사용자의 입력값이 컴퓨터와 얼마나 일치하는지 확인
     public static boolean viewResult(String computerNo, String userInputNo) {
-        BaseballCount baseballCount = new BaseballCount(computerNo, userInputNo);
-        return baseballCount.isGameOver();
+        return new BaseballCount(computerNo, userInputNo).isGameOver();
     }
 
     // 게임을 재시작할 것인지 확인
     public static boolean restartBaseball() {
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        String restart = Console.readLine();
-        if(restart.equals("1")) {
+        if(Console.readLine().equals("1")) {
             playBaseball();
         }
         return false;
