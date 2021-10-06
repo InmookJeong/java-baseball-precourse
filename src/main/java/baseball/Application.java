@@ -24,7 +24,6 @@ public class Application {
         while(!isGameOver) {
             isGameOver = checkResultByUserInput(computerNumbers);
         }
-        // return isGameOver;
         return restartBaseball();
     }
 
@@ -32,8 +31,7 @@ public class Application {
     public static String setComputerNumbers() {
         String computerNumbers = "";
         while(computerNumbers.length() < 3) {
-            int randomNo = Randoms.pickNumberInRange(1, 9);
-            computerNumbers = getValidComputerNumbers(computerNumbers, randomNo);
+            computerNumbers = getValidComputerNumbers(computerNumbers, Randoms.pickNumberInRange(1, 9));
         }
         return computerNumbers;
     }
